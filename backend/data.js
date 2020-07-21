@@ -212,7 +212,7 @@ products: [
       _id: '27',
       name:'nice shirt ',
       category: 'Shirts',
-      image: '/images/im27.jpg',
+      image: '/images/im27.mp3',
       rating: 4.5,
       numReview: 101,
     
