@@ -5,11 +5,11 @@ import config from "./config";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import userRoute from "./routes/userRoutes";
-import productRoute from './routes/productRoutes';
-
+import productRoute from "./routes/productRoutes";
+import cors from "cors";
 
 dotenv.config();
-  
+
 const mongodbUrl = config.MONGODB_URL;
 mongoose
   .connect(mongodbUrl, {
@@ -20,7 +20,7 @@ mongoose
   .catch((error) => console.log(error.reason));
 
 const app = express();
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
@@ -37,5 +37,5 @@ app.get("/api/products", (req, res) => {
 });
 
 app.listen(5000, () => {
-  console.log("server started at http://localhost:5000");
+  console.log("server started at http:/localhost:5000");
 });
